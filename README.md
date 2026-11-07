@@ -169,6 +169,11 @@ resolve, and the bot answering again. It also fails on any browser console error
 - Text messages only; media gets a short "text only" reply.
 - The dashboard uses basic auth for one shared staff login. A bigger team would want real user accounts.
 
+## Related
+
+Want the same kind of assistant on a website instead of WhatsApp? I sell a one-script-tag chat widget with a small
+Node proxy (OpenAI-compatible or Anthropic): [AI Chat Widget for Any Website](https://sunnatulladev.gumroad.com/l/ai-chat-widget-embed).
+
 ## License
 
 MIT
