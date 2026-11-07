@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phone simulator · WhatsApp AI Receptionist</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/simulator.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>WhatsApp AI Receptionist</h1>
+    <span class="tag" id="model-tag">Demo mode</span>
+    <nav><a href="/simulator">Phone simulator</a><a href="/admin">Staff dashboard</a></nav>
+  </header>
+
+  <main class="sim">
+    <section class="phone" aria-label="Simulated phone">
+      <div class="phone-head">
+        <div class="avatar" aria-hidden="true">MD</div>
+        <div class="who"><strong id="clinic-name">Sample clinic</strong><span>business account · sample data</span></div>
+      </div>
+      <div class="chat" id="chat" role="log" aria-live="polite">
+        <div class="day">Today</div>
+      </div>
+      <form class="composer" id="composer" autocomplete="off">
+        <input id="message" name="message" aria-label="Message" placeholder="Type a message" maxlength="1000" required>
+        <button type="submit" id="send">Send</button>
+      </form>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <h2>Try it</h2>
+        <p>You are the patient. Every message is turned into a signed WhatsApp webhook and sent to the server's own <code>/webhook</code>.</p>
+        <div class="chips" id="chips">
+          <button class="chip" type="button">Hi</button>
+          <button class="chip" type="button">What are your opening hours?</button>
+          <button class="chip" type="button">Is there parking?</button>
+          <button class="chip" type="button">Book a check-up on Monday</button>
+          <button class="chip" type="button">10:00 for Anna Sample</button>
+          <button class="chip" type="button">My bookings</button>
+          <button class="chip" type="button">Cancel my booking</button>
+          <button class="chip" type="button">I want to talk to a person</button>
+          <button class="chip" type="button">STOP</button>
+          <button class="chip" type="button">START</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Patient</h2>
+        <label class="field">WhatsApp number (fictional)<input id="wa-id" value="15550100001" inputmode="numeric" pattern="\d{6,15}"></label>
+        <label class="field">Profile name<input id="profile-name" value="Anna Sample" maxlength="60"></label>
+        <p class="muted" id="model-note"></p>
+      </div>
+      <div class="card">
+        <h2>Webhook log</h2>
+        <ul class="log" id="log"></ul>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

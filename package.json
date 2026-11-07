@@ -1,0 +1,41 @@
+{
+  "name": "whatsapp-ai-receptionist",
+  "version": "0.1.0",
+  "description": "WhatsApp AI receptionist for a small clinic or salon: answers FAQ, books and cancels appointments, hands off to a human. Personal portfolio project.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Sunnatulla E.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "start": "node --disable-warning=ExperimentalWarning dist/main.js",
+    "dev": "tsx --disable-warning=ExperimentalWarning watch src/main.ts",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build",
+    "demo": "DEMO_MODE=1 node --disable-warning=ExperimentalWarning dist/main.js",
+    "e2e": "npm run build && playwright test",
+    "screenshots": "npm run build && SCREENSHOTS=1 playwright test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
+    "express": "^5.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
+  }
+}

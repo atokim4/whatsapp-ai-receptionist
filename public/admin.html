@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff dashboard · WhatsApp AI Receptionist</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/admin.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Staff dashboard</h1>
+    <span class="tag" id="clinic-tag">Sample clinic</span>
+    <nav><a href="/simulator">Phone simulator</a><a href="/admin">Staff dashboard</a></nav>
+  </header>
+
+  <main class="admin">
+    <div class="stack">
+      <div class="stats">
+        <div class="card stat"><b id="stat-bookings">0</b><span>upcoming bookings</span></div>
+        <div class="card stat"><b id="stat-handoffs">0</b><span>chats waiting for staff</span></div>
+        <div class="card stat"><b id="stat-contacts">0</b><span>conversations</span></div>
+      </div>
+
+      <section class="card" aria-labelledby="handoffs-title">
+        <h2 id="handoffs-title">Handoffs</h2>
+        <table>
+          <thead><tr><th>#</th><th>Patient</th><th>Reason</th><th>Opened</th><th>Status</th></tr></thead>
+          <tbody id="handoffs"></tbody>
+        </table>
+        <p class="empty" id="handoffs-empty">No handoffs yet.</p>
+      </section>
+
+      <section class="card" aria-labelledby="bookings-title">
+        <h2 id="bookings-title">Bookings from today</h2>
+        <table>
+          <thead><tr><th>#</th><th>When</th><th>Service</th><th>Patient</th><th>Status</th></tr></thead>
+          <tbody id="bookings"></tbody>
+        </table>
+        <p class="empty" id="bookings-empty">No bookings yet.</p>
+      </section>
+    </div>
+
+    <div class="stack">
+      <section class="card" aria-labelledby="contacts-title">
+        <h2 id="contacts-title">Conversations</h2>
+        <table>
+          <thead><tr><th>Patient</th><th>Mode</th><th>Last message</th></tr></thead>
+          <tbody id="contacts"></tbody>
+        </table>
+        <p class="empty" id="contacts-empty">No conversations yet.</p>
+      </section>
+
+      <section class="card" aria-labelledby="chat-title">
+        <h2 id="chat-title">Select a conversation</h2>
+        <div class="transcript" id="transcript" role="log" aria-live="polite"></div>
+        <form class="reply" id="reply" hidden>
+          <textarea id="reply-text" aria-label="Reply as staff" placeholder="Reply as staff. The patient gets it on WhatsApp." maxlength="4096" required></textarea>
+          <div class="row">
+            <button class="btn" type="submit" id="reply-send">Send reply</button>
+            <button class="btn secondary" type="button" id="resolve" hidden>Resolve and hand back to the bot</button>
+          </div>
+          <div class="note" id="reply-note" role="status"></div>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
